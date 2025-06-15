@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hi hello! :3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Fredoka&family=Poppins:wght@400;600&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    #container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px pink;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+    h1 {
+      color: #ff3399;
+      font-family: 'Fredoka', cursive;
+    }
+    .question {
+      margin: 20px 0;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+    .option-btn, .back-btn, .start-btn {
+      background-color: #ffb3d9;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .option-btn:hover, .back-btn:hover, .start-btn:hover {
+      background-color: #ff99cc;
+    }
+    .character {
+      font-size: 40px;
+      animation: pop 1s ease-out forwards;
+      margin-bottom: 20px;
+    }
+    @keyframes pop {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .envelope {
+      margin-top: 30px;
+      display: none;
+      font-size: 2em;
+      animation: pop 1s ease-out forwards;
+      color: #ff3399;
+      cursor: pointer;
+    }
+    #letter {
+      display: none;
+      background: #fff0f5;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 15px;
+      border: 2px dashed #ff3399;
+      font-family: 'Caveat', cursive;
+      font-size: 1.3em;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="character">Greetings, Mr. Chewwy!</div>
+    <button class="start-btn" onclick="startQuiz()">Ayo bermain kuis! >⩊<</button>
+    <div id="quiz" style="display: none;"></div>
+    <div id="envelope" class="envelope">📩 Klik untuk membuka isi hatiku</div>
+    <div id="letter">
+      <h2>Teruntuk kesayangan kecintaanku :3</h2>
+      <p>
+        Cayang, bubub, yeobo, chagi, mon cheri, baby shark doo doo doo doo doo miaw miaw psspspsp<br><br>
+        Terima kasih karena bersedia menjadi bagian paling indah dalam hariku-hariku yang sama boringnya ketika kamu menunggu antrian panjang. Terima kasih sudah menjadi highlighter di buku ku yang isinya paragraf boring karena aku gak pernah kepikiran buat kasih highlight ke kalimat kecil tapi bermakna tersebut, dan sekarang kamu yang membantuku untuk nge-highlight itu semua!!!!<br>
+        Terima kasih karena sudah menjadi orang paling keren, menggemaskan, dan eksis di dimensi ini! Kalau kamu planet, maka akulah satelit yang muterin orbit kamu :3
+        Terus juga, karena aku suka sekali dengan kentang, maka kamulah kentangku!<br>
+        DAAAN kuis ini hanya cara kecil untuk bilang bahwasanya aku sayang kamu megakilometer kuadriliun!!!!!!! Aku merasa bahwa aku sudah sayang dengan kamu di level akut kronis dengan gejala yang serius. Wdym aku terus kangenin kamu, mikirin kamu terus aku menemukan bahwa aku senyum-senyum karena mikirin kamu sayangku cintaku hani bani switi ilobeyousomuch<br>
+        Dan satu lagi... Aku sayang kamu berjuta-juta lebih banyak daripada sel yang ada di tubuhku, lalu aku cinta kamu dan aku bersedia menjadi leukosit kamu jikalau ditawarkan untuk terus menjaga kamu, aku juga bersedia menjadi jaket dan payungmu agar bisa melindungi kamu dan teriknya cahaya matari dan dinginnya rintik hujan, aku juga siap memanjat dinding dan menggantikan lampu yang mati agar kamu tidak kegelapan (ㅅ´ ˘ `)<br>
+        Semoga apa yang kamu semogakan akan cepat terkabul dan menjadi semoga paling indah yang pernah kamu pinta. Semoga apapun yang kamu cita-citakan gak cuma jadi bintang di langit,<br>
+        tapi juga turun jadi kembang api di hidup kamu—meledak, indah, dan bikin semua orang terpesona!<br>
+        Dan kalau suatu saat dunia menjadi aneh, misalnya matahari jadi donat soklat, asal kamu tahu dan perlu kamu yakini bahwa aku masih dan selalu ada bersama kamu disini! (ෆ˙ᵕ˙ෆ)♡ <br><br>
+        Tertanda, 19080.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "Apa warna karet rambut yang aku pakai saat kita bertemu di opho?",
+        options: ["Merah", "Biru", "Pink", "Hitam"]
+      },
+      {
+        question: "Jikalau suatu saat nanti kita bisa menjadi kucing, apa kamu mau kalau aku ngejar kamu dan memberikan kamu wiskas enak in a loving way (lovingly)",
+        options: ["Mau... (malu)", "Mau banget!", "Mau aja sih", "Mau (cuek)"]
+      },
+      {
+        question: "Berapakah nomor NISN siswi ini?",
+        options: ["0076843212", "0076853913", "0076843813", "0075488431"]
+      },
+      {
+        question: "Siapa yang paling aku sayang?",
+        options: ["Kamu", "Azyl", "Jiel", "Gyoza 🤤"]
+      },
+      {
+        question: "Apakah kamu masih sayang aku hari ini? Bahkan besok? Dan lusa? Dan seterusnya? Dan selamanya?",
+        input: true
+      },
+      {
+        question: "Apakah kamu bersedia jikalau aku menandai kamu dengan highlighter dan penanda buku (sticky notes) karena kamulah hal paling berharga dalam hidupku ragaku duniaku jiwaku kasihku AAAAAAA (っ˶ ˘ ᵕ˘)ˆᵕ ˆ˶ς)",
+        input: true
+      },
+    ];
+
+    let current = 0;
+    const quizDiv = document.getElementById("quiz");
+    const envelope = document.getElementById("envelope");
+    const letter = document.getElementById("letter");
+
+    function startQuiz() {
+      document.querySelector(".start-btn").style.display = "none";
+      quizDiv.style.display = "block";
+      showQuestion(current);
+    }
+
+    function showQuestion(index) {
+      const q = questions[index];
+      quizDiv.innerHTML = `<div class="question">${q.question}</div>`;
+
+      if (q.input) {
+        quizDiv.innerHTML += `<input type="text" placeholder="Write here..."><br><br>`;
+        quizDiv.innerHTML += `<button class="option-btn" onclick="next()">Next</button>`;
+      } else {
+        q.options.forEach(opt => {
+          const btn = document.createElement("button");
+          btn.className = "option-btn";
+          btn.textContent = opt;
+          btn.onclick = () => next();
+          quizDiv.appendChild(btn);
+        });
+      }
+
+      if (index > 0) {
+        const backBtn = document.createElement("button");
+        backBtn.textContent = "Back";
+        backBtn.className = "back-btn";
+        backBtn.onclick = () => {
+          current--;
+          showQuestion(current);
+        };
+        quizDiv.appendChild(document.createElement("br"));
+        quizDiv.appendChild(backBtn);
+      }
+    }
+
+    function next() {
+      current++;
+      if (current < questions.length) {
+        showQuestion(current);
+      } else {
+        showEnvelope();
+      }
+    }
+
+    function showEnvelope() {
+      quizDiv.innerHTML = "<h2>Yiipie, kamu selesai!</h2><p>Sekarang kamu bisa menklik tulisan di bawah untuk tahu yang selanjutnya :3</p>";
+      envelope.style.display = "block";
+      envelope.onclick = () => {
+        letter.style.display = "block";
+        envelope.style.display = "none";
+      };
+    }
+  </script>
+</body>
+</html>
